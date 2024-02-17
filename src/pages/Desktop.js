@@ -29,7 +29,7 @@ const Desktop = () => {
     height: '400',
     width: '60%',
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
     },
   };
 
