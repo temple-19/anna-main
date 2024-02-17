@@ -30,8 +30,8 @@ const DropMenu = ({ onClose }) => {
               Sign Up
             </button>
 
-            <button className="cursor-pointer border-none py-2.5 px-5 bg-transparent rounded-6xl flex flex-row items-center justify-center transition-transform transform hover:scale-105">
-              <b className="relative text-lg leading-[150%] font-caption whitespace-pre-wrap text-left">
+            <button className="cursor-pointer border-none py-2.5 px-5 bg-transparent rounded-6xl flex flex-row items-center justify-center transition-transform text-primary-greeen transform hover:scale-105">
+              <b className="relative text-lg leading-[150%]  font-caption whitespace-pre-wrap text-left">
                 Login
               </b>
             </button>

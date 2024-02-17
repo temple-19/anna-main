@@ -25,13 +25,23 @@ const Desktop = () => {
     event.target.pauseVideo();
   };
 
-  const opts = {
-    height: '400',
-    width: '60%',
-    playerVars: {
-      autoplay: 0,
-    },
-  };
+  const opts =
+    window.innerWidth > 768
+      ? {
+          // Check if window width is greater than 768px (adjust as needed)
+          height: '400',
+          width: '60%',
+          playerVars: {
+            autoplay: 0,
+          },
+        }
+      : {
+          height: '200', // Adjust height for mobile
+          width: '100%', // Adjust width for mobile
+          playerVars: {
+            autoplay: 0,
+          },
+        };
 
   const onHomeClick = () => {
     const anchor = document.querySelector("[data-scroll-to='hero']");
@@ -116,8 +126,8 @@ const Desktop = () => {
                 Sign Up
               </button>
 
-              <button className="cursor-pointer border-none py-2.5 px-5 bg-transparent rounded-6xl flex flex-row items-center justify-center transition-transform transform hover:scale-105">
-                <b className="relative text-lg leading-[150%] font-caption whitespace-pre-wrap text-left">
+              <button className="cursor-pointer border-none py-2.5 px-5 bg-transparent rounded-6xl flex flex-row items-center justify-center transition-transform text-primary-greeen transform hover:scale-105">
+                <b className="relative text-lg leading-[150%]  font-caption whitespace-pre-wrap text-left">
                   Login
                 </b>
               </button>
@@ -257,7 +267,7 @@ const Desktop = () => {
           >
             <div className="flex-1 flex flex-col items-center justify-center gap-[43px] min-w-[320px]">
               <img
-                className="w-full relative max-w-[440px] overflow-hidden h-[341.3px] shrink-0 object-cover min-w-[320px]"
+                className="w-full relative max-w-[440px] overflow-hidden h-[340px] sm:h-[270px] md:h-[290px] shrink-0 object-cover min-w-[320px]"
                 alt="cardIllustration"
                 loading="lazy"
                 src="/card-illustration-1@2x.png"
@@ -322,14 +332,14 @@ const Desktop = () => {
           className="self-stretch bg-buttons-primary flex flex-col items-center justify-center pt-9 px-5 pb-5 gap-[170px] text-left text-xs text-background font-caption"
           id="footer"
         >
-          <div className="overflow-hidden flex flex-row flex-wrap items-start justify-between max-w-[1280px]">
-            <div className="flex-1 overflow-hidden flex flex-col items-start justify-start gap-10 min-w-[152px]">
+          <div className="overflow-hidden m-1 flex flex-row flex-wrap items-start justify-between max-w-[1280px]">
+            <div className="flex-1 overflow-hidden m-0 flex flex-col items-start justify-start gap-5 min-w-[152px]">
               <img
-                className="w-28 h-auto object-cover"
+                className="w-40 h-auto object-cover"
                 alt="logoAlt"
                 src="/logo-alt@2x.png"
               />
-              <div className="self-stretch overflow-hidden flex flex-col items-start justify-start gap-5">
+              <div className="self-stretch overflow-hidden flex flex-col items-start justify-start gap-3">
                 <div className="self-stretch leading-150%">
                   One-Stop Shop for All Things Africa
                 </div>
@@ -358,9 +368,9 @@ const Desktop = () => {
               </div>
             </div>
 
-            <div className="flex-1 flex flex-col items-start justify-start gap-5 pl-3 min-w-[152px] max-w-[522px] text-25xl md:max-w-[none] md:w-full">
-              <h3 className="m-0 self-stretch relative text-inherit leading-[140%] font-bold font-inherit">{`Get in touch `}</h3>
-              <div className="self-stretch flex flex-col items-start justify-start gap-5 text-lg text-white">
+            <div className="flex-1 flex flex-col items-start justify-start gap-5 pl-3 min-w-[152px] max-w-[522px] text-4xl md:max-w-[none] md:w-full">
+              <h3 className="m-0 relative text-inherit leading-[140%] font-bold ">{`Get in touch `}</h3>
+              <div className="self-stretch pb-4 flex flex-col items-start justify-start gap-5 text-lg text-white">
                 <p className="m-0 self-stretch relative leading-[170%] whitespace-pre-wrap">{`Stay in the loop. Join our newsletter for the latest news and updates awaits! `}</p>
                 <div className="self-stretch bg-background flex flex-row items-center justify-start py-1 pr-2 pl-5 gap-2 border border-solid border-extra-stuff-dark-white rounded-full md:py-2 md:pr-3 md:pl-6 md:gap-4">
                   <input
@@ -369,7 +379,7 @@ const Desktop = () => {
                     type="email"
                   />
                 </div>
-                <button className="cursor-pointer border-none p-2 bg-white rounded-full md:p-3 transition-transform transform hover:scale-105">
+                <button className="cursor-pointer border-none p-1 bg-white rounded-full md:p-3 transition-transform transform hover:scale-105">
                   <b className="text-sm md:text-base font-caption text-primary-black text-left hover:text-primary-greeen ">
                     Subscribe
                   </b>
@@ -377,16 +387,16 @@ const Desktop = () => {
               </div>
             </div>
             <div className="w-full flex flex-row flex-wrap items-end justify-between max-w-[1280px] text-white md:justify-end">
-              <div className="flex-1 flex flex-row flex-wrap items-center justify-start gap-5 min-w-[152px] md:flex-1 md:justify-start">
-                <div className="relative leading-[150%]">ANNA © 2023</div>
-                <div className="relative leading-[150%] hover:text-lightgray">
-                  Terms of Use
-                </div>
-                <div className="relative leading-[150%] hover:text-lightgray">
-                  Privacy Policy
-                </div>
-              </div>
               <div className="flex-1 flex flex-row flex-wrap items-center justify-end gap-5 min-w-[152px]">
+                <div className="flex-1 flex flex-row pt-4 flex-wrap items-center justify-start gap-5 min-w-[152px] md:flex-1 md:justify-start">
+                  <div className="relative leading-[90%]">ANNA © 2023</div>
+                  <div className="relative leading-[90%] hover:text-lightgray">
+                    Terms of Use
+                  </div>
+                  <div className="relative leading-[90%] hover:text-lightgray">
+                    Privacy Policy
+                  </div>
+                </div>
                 <img
                   className="w-[22.4px] relative h-[22.4px] object-cover hover:bg-lightgray"
                   alt="InstagramIcon"
